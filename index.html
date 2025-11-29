@@ -60,10 +60,10 @@ function checkAnswer() {
     let errorMsg = document.getElementById("errorMsg");
     let hint = document.getElementById("hint");
 
-    // Accept multiple variations automatically
-    let correct = (
-        ans.includes("bonus") && ans.includes("defined") && ans.includes("variable")
-    );
+    // Accept ANY phrase that means "not defined"
+    let correct =
+        ans.includes("not defined") ||
+        ans.includes("undefined");
 
     if (correct) {
         errorMsg.textContent = "";
@@ -76,5 +76,4 @@ function checkAnswer() {
 </script>
 
 </body>
-
 </html>
