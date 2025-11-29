@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bug Hunt – Level 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .hint {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #d7ffd7;
+            border-left: 5px solid #2c8a2c;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        input, button {
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>🐞 Bug Hunt – Debug This Code!</h2>
+
+<p>A teacher wants to add bonus marks to the student’s score.  
+Here is the code:</p>
+
+<pre>
+marks = 80
+final_marks = marks + bonus
+print(final_marks)
+</pre>
+
+<p><b>What is the error? Type your answer:</b></p>
+
+<input type="text" id="answer" placeholder="Enter your answer here">
+<button onclick="checkAnswer()">Submit</button>
+
+<p id="errorMsg" class="error"></p>
+
+<div id="hint" class="hint">
+    <h3>🎉 Correct!</h3>
+    <p>Your next hint is:</p>
+    <h2>🌳 Main Canteen Tree</h2>
+</div>
+
+<script>
+function checkAnswer() {
+    let ans = document.getElementById("answer").value.toLowerCase().trim();
+    let errorMsg = document.getElementById("errorMsg");
+    let hint = document.getElementById("hint");
+
+    // Accept multiple variations automatically
+    let correct = (
+        ans.includes("bonus") && ans.includes("defined")
+    );
+
+    if (correct) {
+        errorMsg.textContent = "";
+        hint.style.display = "block";
+    } else {
+        hint.style.display = "none";
+        errorMsg.textContent = "❌ Incorrect! Try again.";
+    }
+}
+</script>
+
+</body>
+</html>
